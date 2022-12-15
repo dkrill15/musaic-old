@@ -50,6 +50,9 @@ const SectionHeader = ({
             {data.paragraph &&
               <p className="m-0">{data.paragraph}</p>
             }
+            {data.warning &&
+              <div className="text-xs text-color-primary fw-600 tt-u mb-8">{data.warning}</div>
+            }
           </div>
         </div>
       }

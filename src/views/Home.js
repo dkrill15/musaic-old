@@ -1,4 +1,5 @@
 import React from 'react';
+import GenericSection from '../components/sections/GenericSection';
 // import sections
 import Hero from '../components/sections/Hero';
 import FeaturesTiles from '../components/sections/FeaturesTiles';
@@ -11,9 +12,12 @@ const Home = () => {
   return (
     <>
       <Hero className="illustration-section-01" />
+
+      {/* <GenericSection/> */}
+
       <FeaturesTiles />
-      <FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
-      <Testimonial topDivider />
+      <FeaturesSplit/>
+      <Testimonial/>
       <Cta split />
     </>
   );

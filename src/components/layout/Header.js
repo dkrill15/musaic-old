@@ -1,8 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Logo from './partials/Logo';
+import {
+  Redirect,
+  Link
+} from "react-router-dom";
+
+import Home from "../../views/MusaicHome";
+import About from "../../views/MusaicAbout";
+import Create from "../../views/MusaicCreate";
+import Musify from "../../views/MusaicMusify";
 
 const propTypes = {
   navPosition: PropTypes.string,
@@ -44,7 +53,7 @@ const Header = ({
       document.removeEventListener('click', clickOutside);
       closeMenu();
     };
-  });  
+  });
 
   const openMenu = () => {
     document.body.classList.add('off-nav-is-active');
@@ -66,13 +75,39 @@ const Header = ({
     if (!nav.current) return
     if (!isActive || nav.current.contains(e.target) || e.target === hamburger.current) return;
     closeMenu();
-  }  
+  }
 
   const classes = classNames(
     'site-header',
     bottomOuterDivider && 'has-bottom-divider',
     className
   );
+
+  // FUNCTIONS TO NAVIGATE BETWEEN WEB PAGES //////////////////
+
+  /* Claudia i read online this, so basically useNavigate like doesn't exist in the version
+  of react dom that we have and that its not a good function to use in the first place, youre
+  supposed to use Redirect() and it does the same thing anyway but better and safer - sam */
+
+  // const navigate = Redirect();
+  const navigateToHome = () => {
+    // navigate('/');
+    return
+  };
+  const navigateToAbout = () => {
+    // navigate('/about');
+    return
+  };
+  const navigateToCreate = () => {
+    // navigate('/create');
+    return
+  };
+  const navigateToMusify = () => {
+    // navigate('/musify');
+    return
+  };
+
+  //////////////////////////////////////////
 
   return (
     <header
@@ -111,18 +146,39 @@ const Header = ({
                       'list-reset text-xs',
                       navPosition && `header-nav-${navPosition}`
                     )}>
+                    {/* <li>
+                      <Link to="home" onClick={navigateToHome}>Home</Link>
+                    </li>
                     <li>
-                      <Link to="#0" onClick={closeMenu}>Documentation</Link>
+                      <Link to="create" onClick={navigateToCreate}>Create</Link>
+                    </li>
+                    <li>
+                      <Link to="musify" onClick={navigateToMusify}>Musify</Link>
+                    </li>
+                    <li>
+                      <Link to="about" onClick={navigateToAbout}>About</Link>
+                    </li> */}
+                    <li>
+                      <Link to="/cse30246/musaic/project/build/">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/cse30246/musaic/project/build/about">About</Link>
+                    </li>
+                    <li>
+                      <Link to="/cse30246/musaic/project/build/create">Create</Link>
+                    </li>
+                    <li>
+                      <Link to="/cse30246/musaic/project/build/musify">Musify</Link>
                     </li>
                   </ul>
-                  {!hideSignin &&
+                  {/* {!hideSignin &&
                     <ul
                       className="list-reset header-nav-right"
                     >
                       <li>
                         <Link to="#0" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Sign up</Link>
                       </li>
-                    </ul>}
+                    </ul>} */}
                 </div>
               </nav>
             </>}
